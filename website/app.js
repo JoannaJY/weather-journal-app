@@ -34,14 +34,39 @@ function weatherData (data) {
     }
 }
 
-const getContent = async (url) => {
-    const res = await fetch(url)
-
+const updateUI = async () => {
+    const request = await fetch(url);
     try{
-        const data = await res.json();
-        console.log(data)
+        const allData = await request.json();
+        document.getElementById('date').innerHTML = `<p> ${weatherContent.date}</p>`;
+        document.getElementById('time').innerHTML = `<p> ${weatherContent.time}`;
+        document.getElementById('location').innerHTML = `<p> ${weatherContent.location}`;
+        document.getElementById('temp').innerHTML = `<p> ${weatherContent.temp}`;
+        document.getElementById('wind').innerHTML = `<p> ${weatherContent.wind}`;
+        document.getElementById('clouds').innerHTML = `<p> ${weatherContent.clouds}`;
+        document.getElementById('myfeeling').innerHTML = `<p> ${weatherContent.myfeeling}`;
+
+    }catch (error){
+        console.log('error', error)
+    }
+}
+
+
+
+const getContent = async (url='', data={}) => {
+    const response = await fetch(url, {
+        method:'post',
+        credential: 'same-origin',
+        headers:{
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+    try {
+        const data = await response.json();
+        return data
     } catch(error) {
         console.log('error', error);
     }
-     
 }
+
