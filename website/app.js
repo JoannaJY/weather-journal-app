@@ -11,7 +11,7 @@ function generateContent () {
     if (zipCode != '') {
         let url = baseUrl+zipCode+apiKey; 
         getContent (url, weatherData)
-        .then (updateUI())
+       
     } else {
         return "Please enter valid zipcode"
     }
@@ -32,9 +32,11 @@ function weatherData (data) {
         myfeeling: feeling.value
 
     }
+    updateUI (weatherContent)
+    .then(postWeather('/entry', weatherData));
 }
 
-const updateUI = async () => {
+const updateUI = async (weatherData) => {
     const request = await fetch(url);
     try{
         const allData = await request.json();
@@ -53,7 +55,7 @@ const updateUI = async () => {
 
 
 
-const getContent = async (url='', data={}) => {
+const postWeather = async (url='', data={}) => {
     const response = await fetch(url, {
         method:'post',
         credential: 'same-origin',
@@ -70,3 +72,11 @@ const getContent = async (url='', data={}) => {
     }
 }
 
+const  getContent = async (url='') => {
+   const request = await fetch(url);
+   try {
+       const data = await request.json()
+   } catch (error){
+       console.log('error',error)
+   }
+}

@@ -1,6 +1,4 @@
 
-
-projectData = {};
 // Require Express to run server and routes
 const express = require('express');
 // Start up an instance of app
@@ -30,3 +28,4 @@ function listening () {
   console.log("server running"); 
   console.log(`running on localhost: {$port}`);
 }
+
