@@ -2,8 +2,7 @@
 
 /* Global Variables */
 const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = ',au&appid=a3a01efea177cd6f42cfac7a32ae9bfa';
-
+const apiKey = ',au&units=metric&appid=a3a01efea177cd6f42cfac7a32ae9bfa';
 
 document.getElementById('generate').addEventListener('click',generateContent);
 
@@ -31,6 +30,7 @@ function weatherData (data) {
         time: d.toLocaleTimeString(),
         location: data.name,
         temp: data.main.temp,
+        icon: data.weather[0].icon,
         wind: data.wind.speed,
         clouds: data.clouds.all,
         myfeeling: feeling.value
@@ -47,13 +47,14 @@ const updateUI = async () => {
     try{
         const allData = await request.json();
         console.log(allData);
-        document.getElementById('date').innerHTML = `<p> ${allData.date}`;
-        document.getElementById('time').innerHTML = `<p> ${allData.time}`;
-        document.getElementById('location').innerHTML = `<p> ${allData.location}`;
-        document.getElementById('temp').innerHTML = `<p> ${allData.temp}`;
-        document.getElementById('wind').innerHTML = `<p> ${allData.wind}`;
-        document.getElementById('clouds').innerHTML = `<p> ${allData.clouds}`;
-        document.getElementById('myfeeling').innerHTML = `<p> ${allData.myfeeling}`;
+        document.getElementById('date').innerHTML = `<p> Date ${allData.date} </P>`;
+        document.getElementById('time').innerHTML = `${allData.time}`;
+        document.getElementById('location').innerHTML = `${allData.location}`;
+        document.getElementById('temp').innerHTML = `<p> Temperature ${allData.temp} &#8451;</p>`;
+        document.getElementById('icon').src = "https://openweathermap.org/img/wn/" + allData.icon +"@2x.png";
+        document.getElementById('wind').innerHTML = `<p> Wind Speed ${allData.wind} mph </p>`;
+        document.getElementById('clouds').innerHTML = `<p> Cloudiness ${allData.clouds} %</p>`;
+        document.getElementById('myfeeling').innerHTML = `<p> Feeling ${allData.myfeeling} </p>`;
 
     }catch (error){
         console.log('error', error)
