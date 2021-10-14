@@ -5,6 +5,7 @@
 <title>Weather Journal</title>
 <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,13 +23,17 @@
     </div>
     <div class ="holder entry">
       <div id = "entryHolder">
-        <div id = "date"></div> 
-        <div id = "time"></div> 
+        <div class="datetime">
+          <div id = "date"></div> 
+          <div id = "time"></div> 
+        </div>
         <div id = "location"></div> 
-        <div id = "temp"></div>
-        <img id = "icon"></img>
-        <div id = "wind"></div>
-        <div id = "clouds"></div>
+        <div class="weathercontent">
+          <img id = "icon"></img>
+          <div id = "temp"></div>
+          <div id = "wind"></div>
+          <div id = "clouds"></div>
+        </div>
         <div id = "myfeeling"></div>
       </div>
     </div>

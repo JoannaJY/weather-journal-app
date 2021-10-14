@@ -17,11 +17,6 @@ body{
     padding:100px 30%;
 }
 
-
-.holder{
-
-}
-
 .entry{
     background: rgba(59, 74, 107, .4);
     grid-area: content;
@@ -31,19 +26,37 @@ body{
 }
 
 #entryHolder{
-   font-size: 30px;
+   font-size: 25px;
    color: white;
 }
-
+.datetime {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 #date{
-
+  margin-right: 20px;
+}
+#location {
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50px;
+    color: #f0d43a;
+}
+#icon {
+   width: 300px;
+   grid-area: pic;
 }
 
-#temp{
 
-}
-
-#content{
+.weathercontent {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "pic temp"
+    "pic wind"
+    "pic cloud";
 
 }
 
@@ -60,7 +73,7 @@ body{
 }
 .zipcode{
     margin-top: 15px;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 .feel{
     grid-area: feel;
@@ -68,7 +81,10 @@ body{
     flex-direction: column;
     margin-top: -150px;
 }
-
+#myfeeling {
+    margin-left: 50px;
+    margin-top: -30px;
+}
 input{
     display:block;
     height: 60px;
@@ -100,7 +116,7 @@ textarea{
     color: #611C35;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
-    border-radius: 20px;
+    border-radius: 5px;
     width: 400px;
     height: 200px;
 }

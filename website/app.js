@@ -47,14 +47,14 @@ const updateUI = async () => {
     try{
         const allData = await request.json();
         console.log(allData);
-        document.getElementById('date').innerHTML = `<p> Date ${allData.date} </P>`;
-        document.getElementById('time').innerHTML = `${allData.time}`;
+        document.getElementById('date').innerHTML = `<p> ${allData.date} </P>`;
+        document.getElementById('time').innerHTML = `<p> ${allData.time} </p>`;
         document.getElementById('location').innerHTML = `${allData.location}`;
         document.getElementById('temp').innerHTML = `<p> Temperature ${allData.temp} &#8451;</p>`;
         document.getElementById('icon').src = "https://openweathermap.org/img/wn/" + allData.icon +"@2x.png";
         document.getElementById('wind').innerHTML = `<p> Wind Speed ${allData.wind} mph </p>`;
         document.getElementById('clouds').innerHTML = `<p> Cloudiness ${allData.clouds} %</p>`;
-        document.getElementById('myfeeling').innerHTML = `<p> Feeling ${allData.myfeeling} </p>`;
+        document.getElementById('myfeeling').innerHTML = `<p> Feeling: ${allData.myfeeling} </p>`;
 
     }catch (error){
         console.log('error', error)
