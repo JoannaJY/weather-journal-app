@@ -5,7 +5,7 @@ body{
 #app{ 
     background-color: #2E5077;
     color: #f0d43a;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--main-font-family);
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
@@ -49,7 +49,7 @@ body{
 }
 
 
-.weathercontent {
+#content {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
@@ -92,7 +92,7 @@ input{
     background:#8bdaf0;
     color: #611C35;
     font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--main-font-family);
     border: none;
 }
 
@@ -103,7 +103,7 @@ button{
     background: #f3f3d8;
     color: #611C35;
     font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--main-font-family);
     border: none;
     border-radius: 20px;
 }
@@ -115,7 +115,7 @@ textarea{
     background:#8bdaf0;
     color: #611C35;
     font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--main-font-family);
     border-radius: 5px;
     width: 400px;
     height: 200px;
@@ -130,18 +130,38 @@ button:focus {
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
     color: #611C35;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--main-font-family);
 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
     color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--main-font-family);
 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
     color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--main-font-family);
 
 } 
+:root{
+   --main-font-family:'Oswald', sans-serif;
+}
+
+@media (max-width: 1024px) {
+    
+    #app{ 
+        width: 1200px;
+        padding: 100px 50px;
+    }
+    .headline {
+        text-align: start;
+    }
+    .entry{
+        margin-left: 10px;
+    }
+    #content {
+        grid-template-columns: 3/7;
+    }
+}

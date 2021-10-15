@@ -22,12 +22,12 @@ function generateContent () {
 
 function weatherData (data) {
     console.log('weather data');
-    let d = new Date();
+    let currentDate = new Date();
     let feeling = document.getElementById('feelings');
 
     let weatherContent = {
-        date: d.toLocaleDateString(),
-        time: d.toLocaleTimeString(),
+        date: currentDate.toLocaleDateString(),
+        time: currentDate.toLocaleTimeString(),
         location: data.name,
         temp: data.main.temp,
         icon: data.weather[0].icon,
@@ -81,13 +81,13 @@ const postWeather = async (url, data) => {
     }
 }
 
-const  getContent = async (url='',a) => {
+const  getContent = async (url='',data) => {
     console.log('get content '+url);
     const request = await fetch(url);
     try {
-        const abc = await request.json()
-        console.log(abc);
-        a(abc);
+        const allData = await request.json()
+        console.log(allData);
+        data(allData);
     } catch (error){
         console.log('error',error)
     }
